@@ -65,6 +65,13 @@ class Mailer
     }
 
     /**
+     * @param $plugin
+     */
+    public function addPlugin($plugin) {
+        $this->swiftMailer->registerPlugin($plugin);
+    }
+
+    /**
      * @param string $address
      * @param string $name    optional
      *
