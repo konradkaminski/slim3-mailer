@@ -6,6 +6,7 @@ use Anddye\Interfaces\MessageBuilderInterface;
 use DateTimeInterface;
 use Swift_Attachment;
 use Swift_Message;
+use Swift_Mime_ContentEncoder_PlainContentEncoder;
 
 /**
  * Class MessageBuilder.
@@ -27,6 +28,7 @@ class MessageBuilder implements MessageBuilderInterface
     public function __construct(Swift_Message $swiftMessage)
     {
         $this->_swiftMessage = $swiftMessage;
+        $this->_swiftMessage->setEncoder(new Swift_Mime_ContentEncoder_PlainContentEncoder('8bit'));
     }
 
     /**
